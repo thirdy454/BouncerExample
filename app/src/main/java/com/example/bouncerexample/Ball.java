@@ -85,5 +85,6 @@ public class Ball {
             dy = dy * -1;
 
         }
-    } // end bounce off
+    }// end bounce off
+
 } // end Class Ball
