@@ -4,10 +4,10 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
 
-import java.util.logging.Handler;
 
 public class AnimationView extends View {
     private final int FRAME_RATE = 15;         //rate for animation
@@ -21,10 +21,13 @@ public class AnimationView extends View {
         super(context, attrs);
         // TODO Auto-generated constructor stub
 //        comment ko muna baba nag error e
-//        h = new Handler();  //set the handler object
-        //Create Ball Objects
+        h = new Handler();  //set the handler object
+
+        //Paint Object
         paint = new Paint();
         paint.setColor(Color.BLUE);
+
+        //Create Ball Objects
         myBall = new Ball(100, 100, Color.BLUE,50);
         myBall.setDx(30);
         myBall.setDy(30);
@@ -40,7 +43,6 @@ public class AnimationView extends View {
         greenBall.setDy(-15);
         redball.setDx(5);
         redball.setDy(-5);
-
     }//end ng constructor
 
     protected void onDraw(Canvas c) {
@@ -53,7 +55,7 @@ public class AnimationView extends View {
         c.drawCircle(myBall.getX(), myBall.getY(), myBall.getRadius(), myBall.getPaint());
         c.drawCircle(greenBall.getX(), greenBall.getY(), greenBall.getRadius(), greenBall.getPaint());
         c.drawCircle(redball.getX(), redball.getY(), redball.getRadius(), redball.getPaint());
-//        h.postDelayed(r, FRAME_RATE);  comment ko muna error e
+        h.postDelayed(r, FRAME_RATE);
 
         //Call the Runnable to re calculate the model and
         //Draw the Animation

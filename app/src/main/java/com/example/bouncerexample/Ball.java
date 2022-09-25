@@ -83,7 +83,6 @@ public class Ball {
         if ((Math.abs(b.getX()-p.x) < b.getRadius() + r) && (Math.abs(b.getY()- p.y) < b.getRadius() + r)) {
             dx = dx * -1;
             dy = dy * -1;
-
         }
     }// end bounce off
 
