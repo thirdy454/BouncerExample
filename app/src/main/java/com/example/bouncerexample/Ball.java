@@ -59,14 +59,12 @@ public class Ball {
     }
 
     //Function for moving and bouncing
-
     public void move() {
         p.x = p.x + dx;
         p.y = p.y + dy;
     }
 
     // Bounce off Edge
-
     public void bounce(Canvas canvas){
         move();
         if (p.x > canvas.getWidth() || p.x < 0){
@@ -78,7 +76,6 @@ public class Ball {
     } // end bounce()
 
     // Collision Detection with other Ball Object
-
     public void bounceOff(Ball b){
         if ((Math.abs(b.getX()-p.x) < b.getRadius() + r) && (Math.abs(b.getY()- p.y) < b.getRadius() + r)) {
             dx = dx * -1;
