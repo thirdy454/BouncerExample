@@ -50,15 +50,7 @@
                 ></Button>
 
 
-            <Button
-                android:id="@+id/slow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Slow"
-                android:textColor="@color/white"
-                android:backgroundTint="@android:color/holo_red_dark"
 
-                ></Button>
 
 
 

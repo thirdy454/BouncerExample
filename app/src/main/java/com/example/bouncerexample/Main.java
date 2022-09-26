@@ -13,7 +13,7 @@ public class Main extends Activity {
 
     static int YellowSpeed = 1, myBallSpeed = 10, magentaBallSpeed = 16, redballSpeed = 5, greenBallSpeed = -20, valueClick = 0;
     TextView status;
-    Button normal, fast, slow;
+    Button normal, fast;
     String stats = "";
     AnimationView animationView;
     Button restart;
@@ -25,13 +25,11 @@ public class Main extends Activity {
         animationView = (AnimationView)findViewById(R.id.animationView);
         restart = findViewById(R.id.restart);
         fast= findViewById(R.id.fast);
-        slow= findViewById(R.id.slow);
         normal= findViewById(R.id.normal);
 
 //        status= findViewById(R.id.status);
 
         fast();
-        slow();
         normal();
 
         restart.setOnClickListener(new View.OnClickListener() {
@@ -75,20 +73,7 @@ public class Main extends Activity {
         });
     }
 
-    private void slow() {
-        slow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                valueClick -= 10;
-                YellowSpeed -= 10;
-                myBallSpeed -= 10;
-                magentaBallSpeed -= 10;
-                redballSpeed -= 10;
-                greenBallSpeed -= 10;
-                Toast.makeText(Main.this, String.valueOf(valueClick) + " speed", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+
 
 
 
