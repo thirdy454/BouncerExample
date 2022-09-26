@@ -30,27 +30,26 @@ public class AnimationView extends View {
         valueColor = new Main();
         //Create Ball Objects
         myBall = new Ball(100, 100, Color.BLUE,50);
-        myBall.setDx(30);
-        myBall.setDy(30);
+
         greenBall = new Ball(200, 200, Color.GREEN, 25);
         redball = new Ball(50, 400, Color.RED, 75);
         yellowBall = new Ball(150, 400, Color.YELLOW, 100);
         magentaBall = new Ball(150, 100, Color.MAGENTA, 65);
 
         //Set Speed of myBall
-        myBall.setDx(valueColor.YellowSpeed);
+        myBall.setDx(valueColor.myBallSpeed);
         myBall.setDy(10);
 
         //Set Speed of greenBall and redBall
-        greenBall.setDx(-20);
-        greenBall.setDy(-15);
-        redball.setDx(5);
+        greenBall.setDx(valueColor.greenBallSpeed);
+        greenBall.setDy(-5);
+        redball.setDx(valueColor.redballSpeed);
         redball.setDy(-5);
 
         //Set Speed of yellowBall and magentaBall
-        yellowBall.setDx(1);
+        yellowBall.setDx(valueColor.YellowSpeed);
         yellowBall.setDy(-1);
-        magentaBall.setDx(16);
+        magentaBall.setDx(valueColor.magentaBallSpeed);
         magentaBall.setDy(-16);
 
     }//end ng constructor
@@ -84,6 +83,6 @@ public class AnimationView extends View {
         }
     };//end Runnable r
 
-
-
 }//end class AnimationView
+
+

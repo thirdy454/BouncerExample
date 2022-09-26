@@ -70,7 +70,7 @@ public class Ball {
         if (p.x > canvas.getWidth() || p.x < 0){
             dx = dx * -1;
         }
-        if (p.x > canvas.getHeight() || p.y < 0){
+        if (p.y > canvas.getHeight() || p.y < 0){
             dy = dy * -1;
         }
     } // end bounce()

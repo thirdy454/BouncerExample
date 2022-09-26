@@ -7,11 +7,13 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Main extends Activity {
-    int YellowSpeed = 1;
+
+    static int YellowSpeed = 1, myBallSpeed = 10, magentaBallSpeed = 16, redballSpeed = 5, greenBallSpeed = -20, valueClick = 0;
     TextView status;
-    Button yellow, magenta, red, green, blue, fast, slow;
+    Button normal, fast, slow;
     String stats = "";
     AnimationView animationView;
     Button restart;
@@ -22,37 +24,53 @@ public class Main extends Activity {
 
         animationView = (AnimationView)findViewById(R.id.animationView);
         restart = findViewById(R.id.restart);
-        yellow= findViewById(R.id.yellow);
-        magenta= findViewById(R.id.magenta);
-        red= findViewById(R.id.red);
-        green= findViewById(R.id.green);
-        blue= findViewById(R.id.blue);
         fast= findViewById(R.id.fast);
         slow= findViewById(R.id.slow);
-        status= findViewById(R.id.status);
+        normal= findViewById(R.id.normal);
+
+//        status= findViewById(R.id.status);
 
         fast();
         slow();
-        color();
+        normal();
+
         restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Main.this, Main.class);
                 startActivity(intent);
-
-
             }
         });
 
 
     } //End onCreate
 
+    private void normal() {
+        normal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                valueClick = 0;
+                YellowSpeed = 1;
+                myBallSpeed = 10;
+                magentaBallSpeed = 16;
+                redballSpeed = 5;
+                greenBallSpeed = -20;
+                Toast.makeText(Main.this, "Normal speed", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     private void fast() {
         fast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                valueClick += 10;
+                 YellowSpeed += 10;
+                myBallSpeed += 10;
+                magentaBallSpeed += 10;
+                redballSpeed += 10;
+                greenBallSpeed += 10;
+                Toast.makeText(Main.this, String.valueOf(valueClick) + " speed", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -61,58 +79,18 @@ public class Main extends Activity {
         slow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                valueClick -= 10;
+                YellowSpeed -= 10;
+                myBallSpeed -= 10;
+                magentaBallSpeed -= 10;
+                redballSpeed -= 10;
+                greenBallSpeed -= 10;
+                Toast.makeText(Main.this, String.valueOf(valueClick) + " speed", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void color() {
-        //yellow
-        yellow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                status.setText("yellow");
-                stats = "yellow";
-            }
-        });
 
-        //magenta
-        magenta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                status.setText("magenta");
-                stats = "magenta";
-            }
-        });
-
-
-        //red
-        red.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                status.setText("red");
-                stats = "red";
-            }
-        });
-
-        //green
-        green.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                status.setText("green");
-                stats = "green";
-            }
-        });
-
-        //blue
-        blue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                status.setText("blue");
-                stats = "blue";
-            }
-        });
-    }
 
 
     @Override
